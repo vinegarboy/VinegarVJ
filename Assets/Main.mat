@@ -60,23 +60,23 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex2:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 8400000, guid: 712c762bf1243c64d89e4d8efc3e9e39, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex3:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 8400000, guid: 4546fe06e03deb3469d883651118e90d, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex4:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 8400000, guid: f3333292f61bbaa42ad41e51a9ab698f, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex5:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 8400000, guid: 8cd8eb629cef7434b9fffd0479b21c96, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex6:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 8400000, guid: 7e30ef0c36ca4004eb0e7d504aa47f37, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
