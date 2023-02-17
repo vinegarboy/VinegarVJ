@@ -25,8 +25,6 @@ Shader "VinegarShader/MixShader"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            // make fog work
-            #pragma multi_compile_fog
 
             #include "UnityCG.cginc"
 
@@ -39,7 +37,6 @@ Shader "VinegarShader/MixShader"
             struct v2f
             {
                 float2 uv : TEXCOORD0;
-                UNITY_FOG_COORDS(1)
                 float4 vertex : SV_POSITION;
             };
 
@@ -72,7 +69,7 @@ Shader "VinegarShader/MixShader"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 col = tex2D(_Tex1, i.uv)*(1-_mix_Tex1) + tex2D(_Tex2,i.uv)*(1-_mix_Tex2)+ tex2D(_Tex3,i.uv)*(1-_mix_Tex3)+ tex2D(_Tex4,i.uv)*(1-_mix_Tex4)+ tex2D(_Tex5,i.uv)*(1-_mix_Tex5)+ tex2D(_Tex6,i.uv)*(1-_mix_Tex6);
+                fixed4 col = tex2D(_Tex1, i.uv)*(_mix_Tex1) + tex2D(_Tex2,i.uv)*(_mix_Tex2)+ tex2D(_Tex3,i.uv)*(_mix_Tex3)+ tex2D(_Tex4,i.uv)*(_mix_Tex4)+ tex2D(_Tex5,i.uv)*(_mix_Tex5)+ tex2D(_Tex6,i.uv)*(_mix_Tex6);
                 return col;
             }
             ENDCG
