@@ -16,6 +16,9 @@ public class video_Controller : MonoBehaviour
     Material main;
 
     [SerializeField]
+    Material[] prev_mat = new Material[6];
+
+    [SerializeField]
     VideoPlayer[] vp = new VideoPlayer[6];
 
     void Start(){
@@ -27,6 +30,7 @@ public class video_Controller : MonoBehaviour
 
     public void Change_touka(int num){
         main.SetFloat($"_mix_Tex{num+1}", 1-touka[num].value);
+        prev_mat[num].SetFloat("_mix", 1-touka[num].value);
     }
 
     public void Change_speed(int num){
