@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Main
   m_Shader: {fileID: 4800000, guid: 5a86cadaf4c50e24c89f8fef1bb9946c, type: 3}
-  m_ShaderKeywords: _ISGRAY6_ON
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -92,7 +92,7 @@ Material:
     - _IsGray3: 0
     - _IsGray4: 0
     - _IsGray5: 0
-    - _IsGray6: 1
+    - _IsGray6: 0
     - _IsMono1: 0
     - _IsMono2: 0
     - _IsMono3: 0
