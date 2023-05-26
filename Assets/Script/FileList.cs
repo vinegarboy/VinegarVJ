@@ -28,7 +28,7 @@ public class FileList : MonoBehaviour
     List<String> Files = new List<String>();
 
     void Start(){
-        Now_path = Directory.GetCurrentDirectory();
+        Now_path = Directory.GetCurrentDirectory()+"/Videos/";
         NowGetDirectory();
         ListSet();
         Debug.Log(Now_path);
@@ -52,9 +52,8 @@ public class FileList : MonoBehaviour
         
     }
 
-    public void SetDef(){
+    public void Reload(){
         Now_path = Directory.GetCurrentDirectory();
-
         ListSet();
     }
 
@@ -73,19 +72,32 @@ public class FileList : MonoBehaviour
         //リストの内容を削除する。
         Delete_ListFiles();
 
-        // ディレクトリに存在するすべてのファイルとフォルダを取得する
-        string[] files = Directory.GetFiles(Now_path);
-        string[] directories = Directory.GetDirectories(Now_path);
-        
-        // フォルダの絶対パスをリストに追加する
-        foreach (string dir in directories){
-            Files.Add(dir.Replace(Now_path,""));
+         // パス以下のファイルを取得
+        string[] files = Directory.GetFiles(Now_path, "*", SearchOption.AllDirectories);
+
+        foreach (string file in files){
+            // ファイルの拡張子が再生可能な形式かチェック
+            string extension = Path.GetExtension(file).ToLower();
+            if (IsVideoFile(extension)){
+                // VideoPlayerで再生可能なファイルをリストに追加
+                Files.Add(file);
+            }
+        }
+    }
+
+    private static bool IsVideoFile(string extension){
+        // VideoPlayerで再生可能な拡張子を指定
+        string[] videoExtensions = 
+            { ".mp4", ".mov", ".avi", ".flv", ".mkv", ".wmv" };
+
+        // 拡張子が再生可能な形式かチェック
+        foreach (string videoExtension in videoExtensions){
+            if (extension.Equals(videoExtension)){
+                return true;
+            }
         }
 
-        // ファイルの絶対パスをリストに追加する
-        foreach (string file in files){
-            Files.Add(file.Replace(Now_path,""));
-        }
+        return false;
     }
 
     private void Delete_ListFiles(){
