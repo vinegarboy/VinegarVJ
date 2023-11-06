@@ -11,7 +11,7 @@ public class FileList : MonoBehaviour
     String Now_path = "C:";
 
     // クローン間の距離
-    float spacing = 78.21f;
+    float spacing = -50f;
 
     // 初期位置の変数
     Vector3 position;
@@ -44,10 +44,10 @@ public class FileList : MonoBehaviour
 
         for(int i = 0;i<Files.Count;i++){
             //テキストをクローン
-            TextMeshProUGUI newText = Instantiate(tpref, parent.transform.position-new Vector3(0f,spacing*i,0f), Quaternion.identity,parent.transform);
-            
+            TextMeshProUGUI newText = Instantiate(tpref, parent.transform.position+new Vector3(0f,-50f+spacing*i,0f), Quaternion.identity,parent.transform);
+
             //テキストの内容を設定
-            newText.text = Files[i];
+            newText.text = Path.GetFileName(Files[i]);
         }
         
     }
