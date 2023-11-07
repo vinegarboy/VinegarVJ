@@ -24,6 +24,9 @@ public class FileList : MonoBehaviour
     [SerializeField]
     GameObject parent;
 
+    [SerializeField]
+    video_Controller vc;
+
     //サブディレクトリ類を格納する変数
     List<String> Files = new List<String>();
 
@@ -32,6 +35,7 @@ public class FileList : MonoBehaviour
         NowGetDirectory();
         ListSet();
         Debug.Log(Now_path);
+        SendInitialize();
     }
 
     public void ListSet(){
@@ -55,6 +59,7 @@ public class FileList : MonoBehaviour
     public void Reload(){
         Now_path = Directory.GetCurrentDirectory();
         ListSet();
+        SendInitialize();
     }
 
     public void Path_Up(){
@@ -83,6 +88,10 @@ public class FileList : MonoBehaviour
                 Files.Add(file);
             }
         }
+    }
+
+    public void SendInitialize(){
+        vc.Initialize(Files);
     }
 
     private static bool IsVideoFile(string extension){
