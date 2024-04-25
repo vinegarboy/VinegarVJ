@@ -1,53 +1,80 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class video_Controller : MonoBehaviour
 {
-    [SerializeField]
-    Slider[] touka = new Slider[6];
-    
-    [SerializeField]
-    Slider[] speed = new Slider[6];
-    
-    [SerializeField]
-    Material main;
+
+    //現在のパスを収納する場所
+    string pass = "C:";
+
+    //親マテリアル
+    Material parent;
+
+    //BPM
+    public int now_BPM = 128;
+
+    //表示に含まれているマテリアル
+    VideoMaterial[] materials = new VideoMaterial[6];
 
     [SerializeField]
-    Material[] prev_mat = new Material[6];
+    Option_Manager option_Manager;
 
-    RenderTexture[] prev_rt = new RenderTexture[6];
+    [SerializeField]
+    Image parentImage;
 
-    RenderTexture[] rt;
+    //全ての動画ファイルのマテリアル
+    public List<VideoMaterial> all_Videos;
 
-    VideoPlayer[] vp;
+    void Start(){
+        parent = new Material(Shader.Find("VinegarShader/MixShader"));
+        parentImage.material = parent;
+    }
 
-    public void Initialize(List<String> files){
-        vp = new VideoPlayer[files.Count];
-        rt = new RenderTexture[files.Count];
-        for(int i = 0;i<files.Count;i++){
-            vp[i].url = files[i];
-            vp[i].targetTexture = rt[i];
-            rt[i].width = 3840;
-            rt[i].height = 2160;
+    //初期化処理
+    public void Initialize(){
+        //実行ファイル直下のVideosに収納する
+        pass = Application.dataPath + "/Videos";
+
+        //設定ファイルを読み込む
+        all_Videos = new List<VideoMaterial>();
+        all_Videos.AddRange(option_Manager.Load_OptionFile(pass));
+
+        //UnityのVideoPlayerで読み込める動画ファイルのフィルターを作る
+        string[] filters = {"*.mp4","*.mov","*.avi"};
+
+        //フィルターの拡張子を持つ動画ファイルのパスを取得
+        foreach(string filter in filters){
+            //取得後にリストに追加
+            foreach(string path in Directory.GetFiles(pass,filter)){
+                all_Videos.Add(new VideoMaterial(new FileObject(path,0)));
+            }
         }
-        for(int i = 0;i<6;i++){
-            prev_mat[i].mainTexture = prev_rt[i];
-            main.SetTexture($"_Tex{i+1}",rt[i]);
-            Change_speed(i);
-            Change_touka(i);
+    }
+
+    //メインのマテリアルにサブのマテリアルのテクスチャを付加していく
+    public void Set_MainTex(){
+        int i = 1;
+        foreach(VideoMaterial material in materials){
+            parent.SetTexture($"_Tex{i}",material.GetRenderTexture());
+            i++;
         }
+    }
+
+    //特定の位置に特定のテクスチャを設定する
+    public void Set_Tex(int num,VideoMaterial material){
+        parent.SetTexture($"_Tex{num}",material.GetRenderTexture());
     }
 
     public void Change_touka(int num){
-        main.SetFloat($"_mix_Tex{num+1}", 1-touka[num].value);
-        prev_mat[num].SetFloat("_mix", 1-touka[num].value);
+
     }
 
     public void Change_speed(int num){
-        vp[num].playbackSpeed = (int) speed[num].value;
+
     }
 }

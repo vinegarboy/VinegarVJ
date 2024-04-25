@@ -4,31 +4,43 @@ Shader "VinegarShader/MixShader"
     {
         _Tex1 ("Texture1", 2D) = "white" {}
         _mix_Tex1 ("Blend Texture1", Range(0,1)) = 1
+        _Tex1_Offset ("Texture1 Offset", Vector) = (0, 0, 0, 0)
+        _Tex1_Scale ("Texture1 Scale", Vector) = (1, 1, 1, 1)
         [MaterialToggle] _IsNega1 ("ネガポジ", Float) = 0
         [MaterialToggle] _IsGray1 ("グレースケール", Float) = 0
         [MaterialToggle] _IsMono1 ("モノクロ", Float) = 0
         _Tex2 ("Texture2", 2D) = "white" {}
         _mix_Tex2 ("Blend Texture2", Range(0,1)) = 1
+        _Tex2_Offset ("Texture2 Offset", Vector) = (0, 0, 0, 0)
+        _Tex2_Scale ("Texture2 Scale", Vector) = (1, 1, 1, 1)
         [MaterialToggle] _IsNega2 ("ネガポジ", Float) = 0
         [MaterialToggle] _IsGray2 ("グレースケール", Float) = 0
         [MaterialToggle] _IsMono2 ("モノクロ", Float) = 0
         _Tex3 ("Texture3", 2D) = "white" {}
         _mix_Tex3 ("Blend Texture3", Range(0,1)) = 1
+        _Tex3_Offset ("Texture3 Offset", Vector) = (0, 0, 0, 0)
+        _Tex3_Scale ("Texture3 Scale", Vector) = (1, 1, 1, 1)
         [MaterialToggle] _IsNega3 ("ネガポジ", Float) = 0
         [MaterialToggle] _IsGray3 ("グレースケール", Float) = 0
         [MaterialToggle] _IsMono3 ("モノクロ", Float) = 0
         _Tex4 ("Texture4", 2D) = "white" {}
         _mix_Tex4 ("Blend Texture4", Range(0,1)) = 1
+        _Tex4_Offset ("Texture4 Offset", Vector) = (0, 0, 0, 0)
+        _Tex4_Scale ("Texture4 Scale", Vector) = (1, 1, 1, 1)
         [MaterialToggle] _IsNega4 ("ネガポジ", Float) = 0
         [MaterialToggle] _IsGray4 ("グレースケール", Float) = 0
         [MaterialToggle] _IsMono4 ("モノクロ", Float) = 0
         _Tex5 ("Texture5", 2D) = "white" {}
         _mix_Tex5 ("Blend Texture5", Range(0,1)) = 1
+        _Tex5_Offset ("Texture5 Offset", Vector) = (0, 0, 0, 0)
+        _Tex5_Scale ("Texture5 Scale", Vector) = (1, 1, 1, 1)
         [MaterialToggle] _IsNega5 ("ネガポジ", Float) = 0
         [MaterialToggle] _IsGray5 ("グレースケール", Float) = 0
         [MaterialToggle] _IsMono5 ("モノクロ", Float) = 0
         _Tex6 ("Texture6", 2D) = "white" {}
         _mix_Tex6 ("Blend Texture6", Range(0,1)) = 1
+        _Tex6_Offset ("Texture6 Offset", Vector) = (0, 0, 0, 0)
+        _Tex6_Scale ("Texture6 Scale", Vector) = (1, 1, 1, 1)
         [MaterialToggle] _IsNega6 ("ネガポジ", Float) = 0
         [MaterialToggle] _IsGray6 ("グレースケール", Float) = 0
         [MaterialToggle] _IsMono6 ("モノクロ", Float) = 0
@@ -94,6 +106,18 @@ Shader "VinegarShader/MixShader"
             float _IsMono4;
             float _IsMono5;
             float _IsMono6;
+            float4 _Tex1_Offset;
+            float4 _Tex1_Scale;
+            float4 _Tex2_Offset;
+            float4 _Tex2_Scale;
+            float4 _Tex3_Offset;
+            float4 _Tex3_Scale;
+            float4 _Tex4_Offset;
+            float4 _Tex4_Scale;
+            float4 _Tex5_Offset;
+            float4 _Tex5_Scale;
+            float4 _Tex6_Offset;
+            float4 _Tex6_Scale;
 
             v2f vert (appdata v)
             {
@@ -105,7 +129,8 @@ Shader "VinegarShader/MixShader"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 tex1 = tex2D(_Tex1,i.uv);
+                float2 uv1 = (i.uv + _Tex1_Offset.xy) * _Tex1_Scale.xy;
+                fixed4 tex1 = tex2D(_Tex1,uv1);
 
                 if(_IsNega1>0.5){
                     tex1.rgb = 1-tex1.rgb;
@@ -125,7 +150,8 @@ Shader "VinegarShader/MixShader"
                     }
                 }
 
-                fixed4 tex2 = tex2D(_Tex2,i.uv);
+                float2 uv2 = (i.uv + _Tex2_Offset.xy) * _Tex2_Scale.xy;
+                fixed4 tex2 = tex2D(_Tex2, uv2);  
 
                 if(_IsNega2>0.5){
                     tex2.rgb = 1-tex2.rgb;
@@ -139,13 +165,14 @@ Shader "VinegarShader/MixShader"
 
                 if(_IsMono2>0.5){
                     if(gray2<0.5){
-	                    tex2 = fixed4(0, 0, 0, 1);
+                        tex2 = fixed4(0, 0, 0, 1);
                     }else{
-	                    tex2 = fixed4(1, 1, 1, 1);
+                        tex2 = fixed4(1, 1, 1, 1);
                     }
                 }
 
-                fixed4 tex3 = tex2D(_Tex3,i.uv);
+                float2 uv3 = (i.uv + _Tex3_Offset.xy) * _Tex3_Scale.xy;
+                fixed4 tex3 = tex2D(_Tex3, uv3);
 
                 if(_IsNega3>0.5){
                     tex3.rgb = 1-tex3.rgb;
@@ -165,7 +192,8 @@ Shader "VinegarShader/MixShader"
                     }
                 }
 
-                fixed4 tex4 = tex2D(_Tex4,i.uv);
+                float2 uv4 = (i.uv + _Tex4_Offset.xy) * _Tex4_Scale.xy;
+                fixed4 tex4 = tex2D(_Tex4, uv4);
 
                 if(_IsNega4>0.5){     
                     tex4.rgb = 1-tex4.rgb;
@@ -179,13 +207,14 @@ Shader "VinegarShader/MixShader"
 
                 if(_IsMono4>0.5){
                     if(gray4<0.5){
-	                    tex4 = fixed4(0, 0, 0, 1);
+                        tex4 = fixed4(0, 0, 0, 1);
                     }else{
-	                    tex4 = fixed4(1, 1, 1, 1);
+                        tex4 = fixed4(1, 1, 1, 1);
                     }
                 }
 
-                fixed4 tex5 = tex2D(_Tex5,i.uv);
+                float2 uv5 = (i.uv + _Tex5_Offset.xy) * _Tex5_Scale.xy;
+                fixed4 tex5 = tex2D(_Tex5, uv5);
 
                 if(_IsNega5>0.5){
                     tex5.rgb = 1-tex5.rgb;
@@ -205,7 +234,9 @@ Shader "VinegarShader/MixShader"
                     }
                 }
 
-                fixed4 tex6 = tex2D(_Tex6,i.uv);
+                float2 uv6 = (i.uv + _Tex6_Offset.xy) * _Tex6_Scale.xy;
+                fixed4 tex6 = tex2D(_Tex6, uv6);
+
 
                 if(_IsNega6>0.5){
                     tex6.rgb = 1-tex6.rgb;
