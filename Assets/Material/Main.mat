@@ -2,20 +2,24 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Main
   m_Shader: {fileID: 4800000, guid: 5a86cadaf4c50e24c89f8fef1bb9946c, type: 3}
-  m_ShaderKeywords: 
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -79,6 +83,15 @@ Material:
         m_Texture: {fileID: 8400000, guid: 7e30ef0c36ca4004eb0e7d504aa47f37, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Tex7:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Tex8:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -93,18 +106,24 @@ Material:
     - _IsGray4: 0
     - _IsGray5: 0
     - _IsGray6: 0
+    - _IsGray7: 0
+    - _IsGray8: 0
     - _IsMono1: 0
     - _IsMono2: 0
     - _IsMono3: 0
     - _IsMono4: 0
     - _IsMono5: 0
     - _IsMono6: 0
+    - _IsMono7: 0
+    - _IsMono8: 0
     - _IsNega1: 0
     - _IsNega2: 0
     - _IsNega3: 0
     - _IsNega4: 0
     - _IsNega5: 0
     - _IsNega6: 0
+    - _IsNega7: 0
+    - _IsNega8: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -120,7 +139,25 @@ Material:
     - _mix_Tex4: 1
     - _mix_Tex5: 1
     - _mix_Tex6: 1
+    - _mix_Tex7: 1
+    - _mix_Tex8: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Tex1_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Tex1_Scale: {r: 1, g: 1, b: 1, a: 1}
+    - _Tex2_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Tex2_Scale: {r: 1, g: 1, b: 1, a: 1}
+    - _Tex3_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Tex3_Scale: {r: 1, g: 1, b: 1, a: 1}
+    - _Tex4_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Tex4_Scale: {r: 1, g: 1, b: 1, a: 1}
+    - _Tex5_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Tex5_Scale: {r: 1, g: 1, b: 1, a: 1}
+    - _Tex6_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Tex6_Scale: {r: 1, g: 1, b: 1, a: 1}
+    - _Tex7_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Tex7_Scale: {r: 1, g: 1, b: 1, a: 1}
+    - _Tex8_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Tex8_Scale: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
