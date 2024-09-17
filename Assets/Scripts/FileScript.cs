@@ -42,6 +42,11 @@ public class FileScript : MonoBehaviour{
     }
 
     public void OnClick(){
+        if(VideoManager.selected && VideoManager.selectObj.guid == video.guid){
+            VideoManager.ResetSelectedManager();
+            BackImagePanel.SetActive(false);
+            return;
+        }
         BackImagePanel.SetActive(true);
         VideoManager.selectObj = video;
         VideoManager.selected = true;

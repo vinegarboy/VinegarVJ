@@ -17,12 +17,14 @@ public class Channel{
         }
         video = VideoManager.selectObj;
         video_id = video.guid;
+        VideoManager.ResetSelectedManager();
         ChangeParentMaterial();
     }
 
     public void setVideo(VideoObject video){
         this.video = video;
         video_id = video.guid;
+        VideoManager.ResetSelectedManager();
         ChangeParentMaterial();
     }
 
