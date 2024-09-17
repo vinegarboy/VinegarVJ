@@ -133,13 +133,13 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _mix_Tex1: 1
-    - _mix_Tex2: 1
-    - _mix_Tex3: 1
-    - _mix_Tex4: 1
-    - _mix_Tex5: 1
-    - _mix_Tex6: 1
-    - _mix_Tex7: 1
+    - _mix_Tex1: 0
+    - _mix_Tex2: 0
+    - _mix_Tex3: 0
+    - _mix_Tex4: 0
+    - _mix_Tex5: 0
+    - _mix_Tex6: 0
+    - _mix_Tex7: 0
     - _mix_Tex8: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -158,6 +158,6 @@ Material:
     - _Tex6_Scale: {r: 1, g: 1, b: 1, a: 1}
     - _Tex7_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Tex7_Scale: {r: 1, g: 1, b: 1, a: 1}
-    - _Tex8_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Tex8_Offset: {r: 1, g: 1, b: 0, a: 0}
     - _Tex8_Scale: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

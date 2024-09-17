@@ -18,11 +18,13 @@ public class VideoObject{
         Videos.source = VideoSource.Url;
         this.guid = Guid.NewGuid();
         renderTexture = new RenderTexture(1920, 1080, 24);
+        renderTexture.wrapMode = TextureWrapMode.Repeat;
         Videos.targetTexture = renderTexture;
         Videos.url = VideoPath;
         Videos.Play();
         Videos.isLooping = true;
         Prev_material = new Material(Shader.Find("VinegarShader/MixShader"));
         Prev_material.SetTexture("_MainTex", renderTexture);
+        VideoManager.videos.Add(this);
     }
 }

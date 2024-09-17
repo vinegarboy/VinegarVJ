@@ -8,7 +8,7 @@ using TMPro;
 
 public class FileScript : MonoBehaviour{
     public string path;
-    public int bpm;
+    public float bpm;
     public bool has_bpm = true;
     [SerializeField] private Image image;
     [SerializeField] private GameObject BackImagePanel;
@@ -18,8 +18,9 @@ public class FileScript : MonoBehaviour{
     private VideoObject video;
 
     public void Initialize(){
-        if(path == null){
+        if(path == null || File.Exists(path) == false){
             Debug.Log("Path is null");
+            Destroy(this.gameObject);
             return;
         }
         video = new VideoObject(path);
