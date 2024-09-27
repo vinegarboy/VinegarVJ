@@ -36,7 +36,7 @@ public class ChannelScript : MonoBehaviour
 
     public void ChangeFade(){
         channel.fade = fadeSlider.value;
-        channel.video.Prev_material.SetFloat("_Fade",channel.fade);
+        channel.video.Prev_material.SetFloat("_mix",channel.fade);
         ChannelManager.FadeSet();
     }
 
