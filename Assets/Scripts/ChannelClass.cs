@@ -7,6 +7,8 @@ public class Channel{
     public int channel_id;
     private Guid video_id;
 
+    public float fade = 1.0f;
+
     public Channel(int id){
         channel_id = id;
     }

@@ -242,7 +242,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  fade: 1
   speedSlider: {fileID: 210169837882613975}
   fadeSlider: {fileID: 7919609694514451709}
   image: {fileID: 5794850529924121845}
@@ -626,17 +625,17 @@ MonoBehaviour:
   m_FillRect: {fileID: 6987713978396227349}
   m_HandleRect: {fileID: 8964946900660370878}
   m_Direction: 0
-  m_MinValue: 1
+  m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: video_Controller, Assembly-CSharp
-        m_MethodName: Change_speed
-        m_Mode: 3
+      - m_Target: {fileID: 4871295180574782468}
+        m_TargetAssemblyTypeName: ChannelScript, Assembly-CSharp
+        m_MethodName: ChangeSpeed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -786,7 +785,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.001
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -810,10 +809,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: video_Controller, Assembly-CSharp
-        m_MethodName: Change_touka
-        m_Mode: 3
+      - m_Target: {fileID: 4871295180574782468}
+        m_TargetAssemblyTypeName: ChannelScript, Assembly-CSharp
+        m_MethodName: ChangeFade
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

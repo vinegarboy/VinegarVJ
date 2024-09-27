@@ -6,6 +6,8 @@ using UnityEngine.Video;
 public class VideoObject{
     public string VideoPath;
     public float bpm = -1.0f;
+
+    public float speed = 1.0f;
     public bool has_bpm;
     public VideoPlayer Videos;
     public RenderTexture renderTexture;

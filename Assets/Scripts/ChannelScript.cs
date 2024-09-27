@@ -8,7 +8,6 @@ public class ChannelScript : MonoBehaviour
     public Channel channel;
 
     public float speed = 1.0f;
-    public float fade = 1.0f;
 
     [SerializeField]
     private Slider speedSlider;
@@ -36,11 +35,17 @@ public class ChannelScript : MonoBehaviour
     }
 
     public void ChangeFade(){
-        fade = fadeSlider.value;
+        channel.fade = fadeSlider.value;
+        channel.video.Prev_material.SetFloat("_Fade",channel.fade);
+        ChannelManager.FadeSet();
     }
 
     public void ChangeSpeed(){
-        speed = speedSlider.value;
+        if(speedSlider.value == 0){
+            channel.video.speed = 0f;
+        }else{
+            channel.video.speed = speedSlider.value;
+        }
     }
 
     public void OnClick(){
