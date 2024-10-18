@@ -15,6 +15,8 @@ public class FileScript : MonoBehaviour{
     [SerializeField] private TextMeshProUGUI FileName;
     [SerializeField] private TextMeshProUGUI BPM;
 
+    private FileClass file_data;
+
     private VideoObject video;
 
     public void Initialize(){
@@ -32,6 +34,7 @@ public class FileScript : MonoBehaviour{
         }
         FileName.text = Path.GetFileName(path);
         image.material = video.Prev_material;
+        file_data = new FileClass(path,bpm,has_bpm);
     }
 
     void Update(){
