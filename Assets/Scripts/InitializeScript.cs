@@ -27,20 +27,26 @@ public class InitializeScript : MonoBehaviour
         String data_path = Application.dataPath + "/Resources/";
         FileClass[] files;
         if(File.Exists(data_path+"option.json")){
+            Debug.Log("option.json exists");
             files = JsonUtility.FromJson<FileClass[]>(File.ReadAllText(data_path+"option.json"));
             for(int i = 0;i<files.Length;i++){
                 GameObject fileObj = Instantiate(FilePrefab,FileMother.transform);
                 fileObj.transform.position = new Vector3(0, -i*100f,0);
+                Debug.Log($"{files[i].VideoPath} is ADD");
                 fileObj.GetComponent<FileScript>().path = files[i].VideoPath;
+                Debug.Log($"BPM:{files[i].bpm} is Add");
                 fileObj.GetComponent<FileScript>().bpm = files[i].bpm;
                 fileObj.GetComponent<FileScript>().has_bpm = files[i].has_bpm;
                 fileObj.GetComponent<FileScript>().Initialize();
             }
+        }else{
+            Debug.Log("No option.json");
         }
         for(int i = 0;i < Channels.Length;i++){
             Channels[i].GetComponent<ChannelScript>().SetChannel(new Channel(i));
             ChannelManager.channels.Add(Channels[i].GetComponent<ChannelScript>().channel);
         }
+        Debug.Log("Initialize Complete");
         this.gameObject.SetActive(false);
     }
 }
