@@ -49,4 +49,5 @@ sysinfo.txt
 crashlytics-build.properties
 
 Assets\Fonts\*.asset
-Assets\Resources\options.json
+
+Assets/Resources/option.json
