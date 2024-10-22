@@ -20,20 +20,13 @@ public class Channel{
         video = VideoManager.selectObj;
         video_id = video.guid;
         VideoManager.ResetSelectedManager();
-        ChangeParentMaterial();
+        ChannelManager.SetVideo();
     }
 
     public void setVideo(VideoObject video){
         this.video = video;
         video_id = video.guid;
+        ChannelManager.SetVideo();
         VideoManager.ResetSelectedManager();
-        ChangeParentMaterial();
-    }
-
-    private void ChangeParentMaterial(){
-        if(video == null){
-            return;
-        }
-        ChannelManager.material.SetTexture("_Tex" + channel_id+1, video.renderTexture);
     }
 }

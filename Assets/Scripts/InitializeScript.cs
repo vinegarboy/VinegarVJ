@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InitializeScript : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class InitializeScript : MonoBehaviour
     [SerializeField]
     private GameObject[] Channels;
 
+    [SerializeField]
+    private Image MainImage;
+
     /*Initialize順
 
     1.ファイルを読み込む
@@ -25,13 +29,19 @@ public class InitializeScript : MonoBehaviour
     */
     void Start(){
         String data_path = Application.dataPath + "/Resources/";
-        FileClass[] files;
+        if(!Directory.Exists(Application.dataPath + "/Resources")){
+            Directory.CreateDirectory(data_path);
+        }
+        Debug.Log("Initialize Start");
+        Debug.Log(data_path+"option.json");
+        VideosData JsonData;
         if(File.Exists(data_path+"option.json")){
             Debug.Log("option.json exists");
-            files = JsonUtility.FromJson<FileClass[]>(File.ReadAllText(data_path+"option.json"));
+            JsonData = JsonUtility.FromJson<VideosData>(File.ReadAllText(data_path+"option.json"));
+            VideoFile[] files = JsonData.GetVideos();
             for(int i = 0;i<files.Length;i++){
                 GameObject fileObj = Instantiate(FilePrefab,FileMother.transform);
-                fileObj.transform.position = new Vector3(0, -i*100f,0);
+                fileObj.transform.localPosition = new Vector3(0, -(FileMother.transform.childCount-1)*100f,0);
                 Debug.Log($"{files[i].VideoPath} is ADD");
                 fileObj.GetComponent<FileScript>().path = files[i].VideoPath;
                 Debug.Log($"BPM:{files[i].bpm} is Add");
@@ -41,11 +51,15 @@ public class InitializeScript : MonoBehaviour
             }
         }else{
             Debug.Log("No option.json");
+            if(!File.Exists(data_path+"option.json")){
+                File.WriteAllText(data_path+"option.json","");
+            }
         }
         for(int i = 0;i < Channels.Length;i++){
             Channels[i].GetComponent<ChannelScript>().SetChannel(new Channel(i));
             ChannelManager.channels.Add(Channels[i].GetComponent<ChannelScript>().channel);
         }
+        MainImage.material = ChannelManager.material;
         Debug.Log("Initialize Complete");
         this.gameObject.SetActive(false);
     }

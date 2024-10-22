@@ -20,6 +20,7 @@ public class FileScript : MonoBehaviour{
     private VideoObject video;
 
     public void Initialize(){
+        Debug.Log("Initialize");
         if(path == null || File.Exists(path) == false){
             Debug.Log("Path is null");
             Destroy(this.gameObject);
@@ -35,24 +36,26 @@ public class FileScript : MonoBehaviour{
         FileName.text = Path.GetFileName(path);
         image.material = video.Prev_material;
         file_data = new FileClass(path,bpm,has_bpm);
+        Debug.Log("Initialize Comp");
     }
 
     void Update(){
-        if(VideoManager.selected){
-            if(VideoManager.selectObj.guid != video.guid){
-                BackImagePanel.SetActive(false);
-            }
+        if(VideoManager.selectObj != video){
+            BackImagePanel.SetActive(false);
         }
     }
 
     public void OnClick(){
-        if(VideoManager.selected && VideoManager.selectObj.guid == video.guid){
+        Debug.Log("Clicked");
+        if(VideoManager.selected && VideoManager.selectObj == this.video){
             VideoManager.ResetSelectedManager();
             BackImagePanel.SetActive(false);
+            Debug.Log("Deselected");
             return;
         }
         BackImagePanel.SetActive(true);
         VideoManager.selectObj = video;
         VideoManager.selected = true;
+        Debug.Log("Selected");
     }
 }

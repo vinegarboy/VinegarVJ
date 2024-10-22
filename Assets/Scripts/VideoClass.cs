@@ -18,16 +18,18 @@ public class VideoObject{
 
     public VideoObject(string path){
         has_bpm = false;
+        GameObject camera = GameObject.Find("Main Camera");
+        Videos = camera.AddComponent<UnityEngine.Video.VideoPlayer>();
         VideoPath = path;
-        Videos.source = VideoSource.Url;
+        Videos.renderMode = VideoRenderMode.RenderTexture;
+        Videos.url = VideoPath;
         this.guid = Guid.NewGuid();
         renderTexture = new RenderTexture(1920, 1080, 24);
         renderTexture.wrapMode = TextureWrapMode.Repeat;
         Videos.targetTexture = renderTexture;
-        Videos.url = VideoPath;
         Videos.Play();
         Videos.isLooping = true;
-        Prev_material = new Material(Shader.Find("VinegarShader/MixShader"));
+        Prev_material = new Material(Shader.Find("VinegarShader/FadeShader"));
         Prev_material.SetTexture("_MainTex", renderTexture);
         VideoManager.videos.Add(this);
     }

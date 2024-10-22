@@ -18,6 +18,13 @@ public class ChannelScript : MonoBehaviour
     [SerializeField]
     private Image image;
 
+    [SerializeField]
+    int id = 0;
+
+    void Start(){
+        channel = new Channel(id);
+    }
+
     void Update(){
         if(channel == null){
             return;
