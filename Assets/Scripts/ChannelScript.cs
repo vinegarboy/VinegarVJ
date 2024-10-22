@@ -23,6 +23,8 @@ public class ChannelScript : MonoBehaviour
 
     void Start(){
         channel = new Channel(id);
+        speedSlider.value = channel.video.speed;
+        fadeSlider.value = channel.fade;
     }
 
     void Update(){

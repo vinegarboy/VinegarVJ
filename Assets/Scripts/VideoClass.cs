@@ -27,6 +27,7 @@ public class VideoObject{
         renderTexture = new RenderTexture(1920, 1080, 24);
         renderTexture.wrapMode = TextureWrapMode.Repeat;
         Videos.targetTexture = renderTexture;
+        Videos.audioOutputMode = VideoAudioOutputMode.None;
         Videos.Play();
         Videos.isLooping = true;
         Prev_material = new Material(Shader.Find("VinegarShader/FadeShader"));

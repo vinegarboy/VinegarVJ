@@ -10,6 +10,7 @@ public static class ChannelManager{
     public static void SetVideo(){
         for(int i = 0;i<channels.Count;i++){
             if(channels[i].video==null){
+                material.SetFloat($"_mix_Tex{i+1}",0);
                 continue;
             }
             material.SetTexture($"_Tex{i+1}",channels[i].video.renderTexture);
@@ -19,6 +20,9 @@ public static class ChannelManager{
     public static void FadeSet(){
         for(int i = 0;i<channels.Count;i++){
             material.SetFloat($"_mix_Tex{i+1}", channels[i].fade);
+            if(channels[i].video == null){
+                material.SetFloat($"_mix_Tex{i+1}",0);
+            }
         }
     }
 }

@@ -245,6 +245,7 @@ MonoBehaviour:
   speedSlider: {fileID: 210169837882613975}
   fadeSlider: {fileID: 7919609694514451709}
   image: {fileID: 5794850529924121845}
+  id: 0
 --- !u!1 &964268654185581062
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,7 +806,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
