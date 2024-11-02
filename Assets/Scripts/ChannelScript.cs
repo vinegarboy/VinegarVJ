@@ -58,8 +58,8 @@ public class ChannelScript : MonoBehaviour
     }
 
     public void OnClick(){
-        if(VideoManager.selected){
-            channel.setVideo(VideoManager.selectObj);
+        if(SelectedManager.selected&&SelectedManager.selectObj != null){
+            channel.setVideo(SelectedManager.selectObj);
         }else{
             return;
         }

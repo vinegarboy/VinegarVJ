@@ -40,22 +40,24 @@ public class FileScript : MonoBehaviour{
     }
 
     void Update(){
-        if(VideoManager.selectObj != video){
-            BackImagePanel.SetActive(false);
+        if(SelectedManager.selectObj != null){
+            if(SelectedManager.selectObj != video){
+                BackImagePanel.SetActive(false);
+            }
         }
     }
 
     public void OnClick(){
         Debug.Log("Clicked");
-        if(VideoManager.selected && VideoManager.selectObj == this.video){
-            VideoManager.ResetSelectedManager();
+        if(SelectedManager.selected && SelectedManager.selectObj == this.video){
+            SelectedManager.selectObj = null;
             BackImagePanel.SetActive(false);
             Debug.Log("Deselected");
             return;
         }
         BackImagePanel.SetActive(true);
-        VideoManager.selectObj = video;
-        VideoManager.selected = true;
+        SelectedManager.selectObj = video;
+        SelectedManager.selected = true;
         Debug.Log("Selected");
     }
 }

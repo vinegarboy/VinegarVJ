@@ -14,12 +14,12 @@ public class Channel{
     }
 
     public void setVideo(){
-        if(VideoManager.selectObj == null){
+        if(SelectedManager.selectObj == null){
             return;
         }
-        video = VideoManager.selectObj;
+        video = SelectedManager.selectObj;
         video_id = video.guid;
-        VideoManager.ResetSelectedManager();
+        SelectedManager.selectObj = null;
         ChannelManager.SetVideo();
     }
 
@@ -27,6 +27,6 @@ public class Channel{
         this.video = video;
         video_id = video.guid;
         ChannelManager.SetVideo();
-        VideoManager.ResetSelectedManager();
+        SelectedManager.selectObj = null;
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
-using UniTask;
 using UnityEngine.UI;
+using Cysharp.Threading.Tasks;
 
 public class EffecterScript : MonoBehaviour{
     [SerializeField]
@@ -10,4 +10,7 @@ public class EffecterScript : MonoBehaviour{
         this.material = material;
     }
 
+    public async void Swipe(){
+
+    }
 }
