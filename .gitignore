@@ -51,3 +51,4 @@ crashlytics-build.properties
 Assets\Fonts\*.asset
 
 Assets/Resources/option.json
+.vscode/
