@@ -52,3 +52,5 @@ Assets\Fonts\*.asset
 
 Assets/Resources/option.json
 .vscode/
+.editorconfig
+.prettierrc
