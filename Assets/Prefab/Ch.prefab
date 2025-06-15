@@ -125,7 +125,19 @@ MonoBehaviour:
   m_Value: -1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2134930576500160589}
+        m_TargetAssemblyTypeName: ChannelScript, Assembly-CSharp
+        m_MethodName: SetSpeed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &505526907334970690
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc7fff3d04d3e5428add111a8feeef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Prev: {fileID: 4209575404942694495}
 --- !u!1 &4131085192795132561
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,13 +424,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 2482183909472788430}
   m_HandleRect: {fileID: 726621571392808632}
   m_Direction: 0
-  m_MinValue: -1
+  m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: -1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2134930576500160589}
+        m_TargetAssemblyTypeName: ChannelScript, Assembly-CSharp
+        m_MethodName: SetFade
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4322541263858398236
 GameObject:
   m_ObjectHideFlags: 0

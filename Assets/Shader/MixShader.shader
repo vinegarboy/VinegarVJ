@@ -2,13 +2,15 @@ Shader "VinegarShader/MixShader"
 {
     Properties
     {
-        _Tex1 ("Texture1", 2D) = "white" {}
+        [MainTexture]_Tex1 ("Texture1", 2D) = "white" {}
         _mix_Tex1 ("Blend Texture1", Range(0,1)) = 1
         _Tex1_Offset ("Texture1 Offset", Vector) = (0, 0, 0, 0)
         _Tex1_Scale ("Texture1 Scale", Vector) = (1, 1, 1, 1)
         [MaterialToggle] _IsNega1 ("ネガポジ", Float) = 0
         [MaterialToggle] _IsGray1 ("グレースケール", Float) = 0
         [MaterialToggle] _IsMono1 ("モノクロ", Float) = 0
+
+
         _Tex2 ("Texture2", 2D) = "white" {}
         _mix_Tex2 ("Blend Texture2", Range(0,1)) = 1
         _Tex2_Offset ("Texture2 Offset", Vector) = (0, 0, 0, 0)
@@ -16,6 +18,8 @@ Shader "VinegarShader/MixShader"
         [MaterialToggle] _IsNega2 ("ネガポジ", Float) = 0
         [MaterialToggle] _IsGray2 ("グレースケール", Float) = 0
         [MaterialToggle] _IsMono2 ("モノクロ", Float) = 0
+
+
         _Tex3 ("Texture3", 2D) = "white" {}
         _mix_Tex3 ("Blend Texture3", Range(0,1)) = 1
         _Tex3_Offset ("Texture3 Offset", Vector) = (0, 0, 0, 0)
@@ -23,6 +27,8 @@ Shader "VinegarShader/MixShader"
         [MaterialToggle] _IsNega3 ("ネガポジ", Float) = 0
         [MaterialToggle] _IsGray3 ("グレースケール", Float) = 0
         [MaterialToggle] _IsMono3 ("モノクロ", Float) = 0
+        
+
         _Tex4 ("Texture4", 2D) = "white" {}
         _mix_Tex4 ("Blend Texture4", Range(0,1)) = 1
         _Tex4_Offset ("Texture4 Offset", Vector) = (0, 0, 0, 0)
@@ -30,6 +36,8 @@ Shader "VinegarShader/MixShader"
         [MaterialToggle] _IsNega4 ("ネガポジ", Float) = 0
         [MaterialToggle] _IsGray4 ("グレースケール", Float) = 0
         [MaterialToggle] _IsMono4 ("モノクロ", Float) = 0
+
+
         _Tex5 ("Texture5", 2D) = "white" {}
         _mix_Tex5 ("Blend Texture5", Range(0,1)) = 1
         _Tex5_Offset ("Texture5 Offset", Vector) = (0, 0, 0, 0)
@@ -37,6 +45,8 @@ Shader "VinegarShader/MixShader"
         [MaterialToggle] _IsNega5 ("ネガポジ", Float) = 0
         [MaterialToggle] _IsGray5 ("グレースケール", Float) = 0
         [MaterialToggle] _IsMono5 ("モノクロ", Float) = 0
+
+
         _Tex6 ("Texture6", 2D) = "white" {}
         _mix_Tex6 ("Blend Texture6", Range(0,1)) = 1
         _Tex6_Offset ("Texture6 Offset", Vector) = (0, 0, 0, 0)
@@ -44,6 +54,8 @@ Shader "VinegarShader/MixShader"
         [MaterialToggle] _IsNega6 ("ネガポジ", Float) = 0
         [MaterialToggle] _IsGray6 ("グレースケール", Float) = 0
         [MaterialToggle] _IsMono6 ("モノクロ", Float) = 0
+
+
         _Tex7 ("Texture7", 2D) = "white" {}
         _mix_Tex7 ("Blend Texture7", Range(0,1)) = 1
         _Tex7_Offset ("Texture7 Offset", Vector) = (0, 0, 0, 0)
@@ -51,6 +63,8 @@ Shader "VinegarShader/MixShader"
         [MaterialToggle] _IsNega7 ("ネガポジ", Float) = 0
         [MaterialToggle] _IsGray7 ("グレースケール", Float) = 0
         [MaterialToggle] _IsMono7 ("モノクロ", Float) = 0
+
+        
         _Tex8 ("Texture8", 2D) = "white" {}
         _mix_Tex8 ("Blend Texture8", Range(0,1)) = 1
         _Tex8_Offset ("Texture8 Offset", Vector) = (0, 0, 0, 0)
